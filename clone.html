@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.1/dist/jdenticon.min.js" async
+        integrity="sha384-l0/0sn63N3mskDgRYJZA6Mogihu0VY3CusdLMiwpJ9LFPklOARUcOiWEIGGmFELx"
+        crossorigin="anonymous">
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>    
+    <script src="firebase.js"></script>
+    <script src="script.js"></script>
+    <script src="header.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Amazon Clone 3.0</title>
+</head>
+<body>
+    <div class="header flex overflow-hidden items-center h-14 bg-gray-700">
+        <img class="w-28 h-14 cursor-pointer" src="acastro_181114_1777_amazon_hq2_0006.jpg" alt="">
+
+        <input class="outline-none w-96 h-9 border-gray-500 p-4 rounded-l-xl mx-20 mr-0" type="text" placeholder="Search items here...">
+
+        <div class="search flex justify-center items-center h-9 w-11 bg-yellow-400 rounded-r-xl mr-20 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+        </div>
+
+        <button class="language flex border-solid border-b-2 border-black rounded-md p-1.5 mr-18">
+            <img class="h-6 w-6 mr-2" src="icons8-web-64.png" alt="">
+            <span class="mr-4 text-white">English</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+            </svg>
+        </button>
+
+        <div class="alexa flex ml-10 cursor-pointer items-center">
+            <span class="mr-2 text-green-400 text-lg">Ask Alexa</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+              </svg>
+        </div>
+
+        <a href="carts.html">
+            <div class="cart flex font-bold items-center h-10 rounded-lg items-end p-2 cursor-pointer mt-1 ml-10 relative">
+                <div class="circle absolute w-4 h-4 rounded-full bg-white -top-0 -right-0 text-sm flex justify-center items-center font-bold"></div>
+                <div class="cart-icon w-10 p-1 rounded-lg flex justify-center items-center bg-yellow-400">
+                    <svg class="h-6 w-6 text-yellow-800" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                </div>
+            </div>
+        </a>
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2.5 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        </svg>
+
+        <div class="jdenticon flex justify-center items-center relative ml-4">
+            <span class="name text-white">Hi, Emmanuel</span>
+            <svg class="h-10 w-22" width="80" height="80" data-jdenticon-value="Emmanuel"></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute bottom-0 right-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+        </div>
+    </div>
+
+    <div class="main-screen h-screen bg-gray-200 flex">
+        <div class="sidebar hidden md:block w-1/6 bg-gray-700 p-4 pt-6 border-t-2 border-gray-200">
+            <div class="groups text-lg">
+                <div class="sections-head font-bold flex items-center py-1 w-48 bg-gray-500 cursor-pointer rounded-lg p-2 hover:text-yellow-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                    </svg>
+                    <h1 class="pl-1">Sections</h1>
+                </div>
+                <div class="sections pl-10">
+                    <h1 class="hover:text-white cursor-pointer w-content">Clothings</h1>
+                    <h1 class="hover:text-white cursor-pointer">Gadgets</h1>
+                    <h1 class="hover:text-white cursor-pointer">Furniture</h1>
+                    <h1 class="hover:text-white cursor-pointer">Kitchen</h1>
+                    <h1 class="hover:text-white cursor-pointer">Stationery</h1>
+                    <h1 class="hover:text-white cursor-pointer">Movies</h1>
+                </div>
+                <div class="sell-on-amazon font-bold flex flex-grow items-center py-1.5 hover:bg-gray-500 cursor-pointer rounded-lg w-48 hover:text-yellow-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h1 class="pl-1">Sell On Amazon</h1>
+                </div>
+                <div class="sell-on-amazon font-bold flex flex-grow items-center py-1.5 hover:bg-gray-500 cursor-pointer rounded-lg w-48 hover:text-yellow-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h1 class="pl-1">Buy Coins</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-section flex-1 w-screen">
+            <div class="main-section-top h-1/2 flex p-6 ">
+                <h1 class="amazing-products font-bold text-xl text-gray-500 my-5">We have Amazing Products for You.....</h1>
+                
+            </div>
+            
+            <div class="main-section-bottom p-6 bg-gray-100">
+                <div class="products font-bold text-xl text-gray-500 p-6">
+                    <h1>Hot Sales 🔥</h1>
+                </div>
+
+                <div class="items flex flex-wrap">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+.alexa {
+    font-family: 'Satisfy', sans-serif;
+    font-weight: 600;
+}
+
+.name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.sections-head, .sell-on-amazon {
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-section-top {
+    background-image: url('pexels-francesco-ungaro-673648.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.cart {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
